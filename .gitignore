@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+.metadata/.log
+.metadata/.plugins/org.eclipse.xtext.builder/builder.state
