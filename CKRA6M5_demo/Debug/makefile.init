@@ -1,0 +1,11 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+arg1 = $(1)
+export PATH=C:\e2studio(2023-01)\toolchains\gcc_arm\gcc-arm-none-eabi-10.3-2021.10\bin\;C:\e2studio(2023-01)\eclipse\plugins\com.renesas.ide.exttools.busybox.win32.x86_64_1.3.5.v20220125-0945\bin\;C:\e2studio(2023-01)\eclipse\plugins\com.renesas.ide.exttools.gnumake.win32.x86_64_4.3.0.v20220121-1024\mk\;C:/e2studio(2023-01)/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20220903-1038/jre/bin/server;C:/e2studio(2023-01)/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20220903-1038/jre/bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\mingw64\bin;C:\mingw64\x86_64-w64-mingw32\bin;C:\ProgramData\chocolatey\bin;C:\Users\namtr\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\namtr\AppData\Local\Programs\Python\Python37\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\namtr\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\namtr\AppData\Local\Programs\Python\Python37\;C:\Users\namtr\AppData\Local\Microsoft\WindowsApps;C:\Users\namtr\AppData\Local\Programs\Microsoft VS Code\bin;C:\mingw64\bin;C:\mingw64\x86_64-w64-mingw32\bin;C:\Users\namtr\AppData\Local\GitHubDesktop\bin;C:\Users\namtr\.dotnet\tools;;C:\e2studio(2023-01)\eclipse
+export TCINSTALL=C:\e2studio(2023-01)\toolchains\gcc_arm\gcc-arm-none-eabi-10.3-2021.10$(call arg1,\)
+export CWD=$(CURDIR)
+export TC_VERSION=10.3.1.20210824
+export PWD=$(CURDIR)
+export GCC_VERSION=10.3.1

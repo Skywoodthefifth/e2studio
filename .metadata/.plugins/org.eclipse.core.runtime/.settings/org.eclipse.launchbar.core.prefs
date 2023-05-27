@@ -1,0 +1,10 @@
+LaunchTargetManager/configs/CKRA6M5_demo\ Debug_Flat=null\:---
+LaunchTargetManager/configs/ZMOD4\ Debug_Flat=null\:---
+LaunchTargetManager/configs/ZMOD4XXX\ Debug_Flat=null\:---
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+com.renesas.cdt.launch.dsf.launching.gdbLocalLaunchDescriptorType\:CKRA6M5_demo\ Debug_Flat/activeLaunchMode=debug
+com.renesas.cdt.launch.dsf.launching.gdbLocalLaunchDescriptorType\:CKRA6M5_demo\ Debug_Flat/activeLaunchTarget=null\:---
+configDescList=com.renesas.cdt.launch.dsf.launching.gdbLocalLaunchDescriptorType\:aws_ck_ra6m5_ethernet_app.elf,com.renesas.cdt.launch.dsf.launching.gdbLocalLaunchDescriptorType\:ZMOD4XXX Debug_Flat,com.renesas.cdt.launch.dsf.launching.gdbLocalLaunchDescriptorType\:CKRA6M5_demo Debug_Flat
+eclipse.preferences.version=1

@@ -1,0 +1,30 @@
+01:41:10 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:153:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  153 |         int decimal_part = (int) ((num - integer_part) * 10);
+      |                                        ^
+../src/hal_entry.c:159:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  159 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:165:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  165 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:171:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  171 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:177:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  177 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:183:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  183 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+Building target: CKRA6M5_demo.elf
+arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
+arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28716	    436	   2132	  31284	   7a34	CKRA6M5_demo.elf
+
+01:41:11 Build Finished. 0 errors, 6 warnings. (took 974ms)
+

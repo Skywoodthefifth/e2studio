@@ -1,0 +1,14 @@
+20:04:53 **** Incremental Build of configuration Debug for project ZMOD4 ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building file: ../ra_gen/hal_data.c
+Building file: ../ra_gen/main.c
+Building file: ../ra/fsp/src/rm_zmod4xxx/oaq_1st_gen/rm_zmod4510_oaq_1st_gen.c
+Building target: ZMOD4.elf
+arm-none-eabi-objcopy -O srec "ZMOD4.elf"  "ZMOD4.srec"
+arm-none-eabi-size --format=berkeley "ZMOD4.elf"
+   text	   data	    bss	    dec	    hex	filename
+  23428	    324	   1932	  25684	   6454	ZMOD4.elf
+
+20:04:55 Build Finished. 0 errors, 0 warnings. (took 1s.491ms)
+

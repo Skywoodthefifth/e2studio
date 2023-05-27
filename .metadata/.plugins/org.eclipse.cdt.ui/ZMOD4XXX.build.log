@@ -1,0 +1,8 @@
+00:27:34 **** Incremental Build of configuration Debug for project ZMOD4XXX ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "ZMOD4XXX.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24284	    376	   1984	  26644	   6814	ZMOD4XXX.elf
+
+00:27:35 Build Finished. 0 errors, 0 warnings. (took 181ms)
+

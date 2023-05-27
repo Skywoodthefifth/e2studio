@@ -1,0 +1,8 @@
+13:35:41 **** Incremental Build of configuration Debug for project aws_ck_ra6m5_ethernet_app ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "aws_ck_ra6m5_ethernet_app.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 432440	   1356	 522908	 956704	  e9920	aws_ck_ra6m5_ethernet_app.elf
+
+13:35:42 Build Finished. 0 errors, 0 warnings. (took 523ms)
+
