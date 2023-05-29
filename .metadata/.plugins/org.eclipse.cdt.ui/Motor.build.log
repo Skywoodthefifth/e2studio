@@ -1,0 +1,11 @@
+13:56:31 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12340	    124	   1724	  14188	   376c	Motor.elf
+
+13:56:32 Build Finished. 0 errors, 0 warnings. (took 569ms)
+

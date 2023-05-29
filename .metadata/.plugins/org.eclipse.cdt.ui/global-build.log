@@ -1,462 +1,648 @@
 Extracting support files...
-00:27:42 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+12:21:24 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12028	    124	   1724	  13876	   3634	Motor.elf
+Extracting support files...
+12:23:37 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  11984	    124	   1724	  13832	   3608	Motor.elf
+Extracting support files...
+12:25:30 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12020	    124	   1724	  13868	   362c	Motor.elf
+Extracting support files...
+12:27:28 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12028	    124	   1724	  13876	   3634	Motor.elf
+Extracting support files...
+12:33:58 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:192:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  192 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:188:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  188 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:198:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  198 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:194:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  194 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:204:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  204 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:200:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  200 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:210:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  210 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:206:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  206 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:216:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  216 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:212:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  212 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:222:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  222 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:218:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  218 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
 Building target: CKRA6M5_demo.elf
 arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  24884	    376	   2040	  27300	   6aa4	CKRA6M5_demo.elf
+  29732	    448	   2232	  32412	   7e9c	CKRA6M5_demo.elf
 Extracting support files...
-00:43:42 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+13:03:51 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:150:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  150 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:188:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  188 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:156:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  156 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:194:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  194 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:162:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  162 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:200:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  200 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:168:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  168 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:206:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  206 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:174:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  174 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:212:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  212 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:180:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  180 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:218:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  218 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c: In function 'hs300x_callback':
-../src/hal_entry.c:253:13: error: 'hs300x_complete' undeclared (first use in this function)
-  253 |             hs300x_complete = true;
-      |             ^~~~~~~~~~~~~~~
-../src/hal_entry.c:253:13: note: each undeclared identifier is reported only once for each function it appears in
+Building target: CKRA6M5_demo.elf
+arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
+arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29732	    448	   2232	  32412	   7e9c	CKRA6M5_demo.elf
+Extracting support files...
+13:03:56 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:126:20: warning: implicit declaration of function 'map' [-Wimplicit-function-declaration]
+  126 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                    ^~~
 ../src/hal_entry.c: At top level:
-../src/hal_entry.c:448:6: error: redefinition of 'hs300x_callback'
-  448 | void hs300x_callback(rm_hs300x_callback_args_t *p_args)
-      |      ^~~~~~~~~~~~~~~
-../src/hal_entry.c:247:6: note: previous definition of 'hs300x_callback' was here
-  247 | void hs300x_callback(rm_hs300x_callback_args_t *p_args)
-      |      ^~~~~~~~~~~~~~~
+../src/hal_entry.c:305:6: warning: no previous declaration for 'setServo' [-Wmissing-declarations]
+  305 | void setServo()
+      |      ^~~~~~~~
+../src/hal_entry.c: In function 'setServo':
+../src/hal_entry.c:310:5: warning: implicit declaration of function 'delayMicroseconds' [-Wimplicit-function-declaration]
+  310 |     delayMicroseconds (dutyHIGH);
+      |     ^~~~~~~~~~~~~~~~~
+Building target: Motor.elf
+c:/e2studio(2023-01)/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/ld.exe: ./src/hal_entry.o: in function `hal_entry':
+D:\code\e2studio\Motor\Debug/../src/hal_entry.c:126: undefined reference to `map'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:98: Motor.elf] Error 1
+"make -r -j8 all" terminated with exit code 2. Build might be incomplete.
+Extracting support files...
+13:06:15 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:126:20: warning: implicit declaration of function 'map' [-Wimplicit-function-declaration]
+  126 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                    ^~~
+../src/hal_entry.c: At top level:
+../src/hal_entry.c:305:6: warning: no previous declaration for 'setServo' [-Wmissing-declarations]
+  305 | void setServo()
+      |      ^~~~~~~~
+../src/hal_entry.c: In function 'setServo':
+../src/hal_entry.c:311:26: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  311 |     R_BSP_SoftwareDelay (dutyHIGH, BSP_DELAY_UNITS_MICROSECONDS);
+      |                          ^~~~~~~~
+../src/hal_entry.c: At top level:
+../src/hal_entry.c:317:6: warning: no previous declaration for 'map' [-Wmissing-declarations]
+  317 | long map(long x, long in_min, long in_max, long out_min, long out_max)
+      |      ^~~
+../src/hal_entry.c:317:6: error: conflicting types for 'map'
+../src/hal_entry.c:126:20: note: previous implicit declaration of 'map' was here
+  126 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                    ^~~
 make: *** [src/subdir.mk:25: src/hal_entry.o] Error 1
 "make -r -j8 all" terminated with exit code 2. Build might be incomplete.
 Extracting support files...
-00:44:05 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+13:06:51 **** Incremental Build of configuration Debug for project Motor ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:150:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  150 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:126:20: warning: implicit declaration of function 'map' [-Wimplicit-function-declaration]
+  126 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                    ^~~
+../src/hal_entry.c: At top level:
+../src/hal_entry.c:305:6: warning: no previous declaration for 'setServo' [-Wmissing-declarations]
+  305 | void setServo()
+      |      ^~~~~~~~
+../src/hal_entry.c: In function 'setServo':
+../src/hal_entry.c:311:26: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  311 |     R_BSP_SoftwareDelay (dutyHIGH, BSP_DELAY_UNITS_MICROSECONDS);
+      |                          ^~~~~~~~
+../src/hal_entry.c: At top level:
+../src/hal_entry.c:317:5: warning: no previous declaration for 'map' [-Wmissing-declarations]
+  317 | int map(int x, int in_min, int in_max, int out_min, int out_max)
+      |     ^~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12100	    128	   1728	  13956	   3684	Motor.elf
+Extracting support files...
+13:07:07 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c:307:6: warning: no previous declaration for 'setServo' [-Wmissing-declarations]
+  307 | void setServo()
+      |      ^~~~~~~~
+../src/hal_entry.c: In function 'setServo':
+../src/hal_entry.c:313:26: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  313 |     R_BSP_SoftwareDelay (dutyHIGH, BSP_DELAY_UNITS_MICROSECONDS);
+      |                          ^~~~~~~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12100	    128	   1728	  13956	   3684	Motor.elf
+Extracting support files...
+13:08:11 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:128:20: warning: conversion to 'uint32_t' {aka 'volatile long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  128 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                    ^~~
+../src/hal_entry.c: At top level:
+../src/hal_entry.c:307:6: warning: no previous declaration for 'setServo' [-Wmissing-declarations]
+  307 | void setServo()
+      |      ^~~~~~~~
+../src/hal_entry.c:319:10: error: conflicting types for 'map'
+  319 | uint32_t map(int x, int in_min, int in_max, uint32_t out_min, uint32_t out_max)
+      |          ^~~
+../src/hal_entry.c:52:5: note: previous declaration of 'map' was here
+   52 | int map(int x, int in_min, int in_max, int out_min, int out_max);
+      |     ^~~
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:321:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  321 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:321:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  321 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+make: *** [src/subdir.mk:25: src/hal_entry.o] Error 1
+"make -r -j8 all" terminated with exit code 2. Build might be incomplete.
+Extracting support files...
+13:08:24 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c:307:6: warning: no previous declaration for 'setServo' [-Wmissing-declarations]
+  307 | void setServo()
+      |      ^~~~~~~~
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:321:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  321 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:321:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  321 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12100	    128	   1728	  13956	   3684	Motor.elf
+Extracting support files...
+13:10:10 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:323:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  323 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:323:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  323 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12208	    128	   1728	  14064	   36f0	Motor.elf
+Extracting support files...
+13:17:24 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:326:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:326:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12100	    124	   1724	  13948	   367c	Motor.elf
+Extracting support files...
+13:23:13 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../ra_gen/pin_data.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12108	    124	   1724	  13956	   3684	Motor.elf
+Extracting support files...
+13:24:55 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:326:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:326:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12108	    124	   1724	  13956	   3684	Motor.elf
+Extracting support files...
+13:29:06 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building file: ../ra_gen/pin_data.c
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:326:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:326:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12228	    128	   1728	  14084	   3704	Motor.elf
+Extracting support files...
+13:29:44 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12228	    128	   1728	  14084	   3704	Motor.elf
+Extracting support files...
+13:29:47 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12228	    128	   1728	  14084	   3704	Motor.elf
+Extracting support files...
+13:30:39 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:326:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:326:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  326 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12228	    128	   1728	  14084	   3704	Motor.elf
+Extracting support files...
+13:32:31 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'map':
+../src/hal_entry.c:332:25: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  332 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                         ^
+../src/hal_entry.c:332:47: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  332 |     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      |                                               ^
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12268	    128	   1728	  14124	   372c	Motor.elf
+Extracting support files...
+13:37:04 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:129:25: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  129 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                         ^~~~
+../src/hal_entry.c:170:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  170 |         AcX = (MPU6050_data_buffer[0] << 8) | MPU6050_data_buffer[1];  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)
+      |               ^
+../src/hal_entry.c:171:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  171 |         AcY = (MPU6050_data_buffer[2] << 8) | MPU6050_data_buffer[3];  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
+      |               ^
+../src/hal_entry.c:172:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  172 |         AcZ = (MPU6050_data_buffer[4] << 8) | MPU6050_data_buffer[5];  // 0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
+      |               ^
+../src/hal_entry.c:173:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  173 |         Tmp = ((MPU6050_data_buffer[6] << 8) | MPU6050_data_buffer[7]) / 340 + 36;  // 0x41 (TEMP_OUT_H) & 0x42 (TEMP_OUT_L)
+      |               ^
+../src/hal_entry.c:174:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  174 |         GyX = (MPU6050_data_buffer[8] << 8) | MPU6050_data_buffer[9];  // 0x43 (GYRO_XOUT_H) & 0x44 (GYRO_XOUT_L)
+      |               ^
+../src/hal_entry.c:175:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  175 |         GyY = (MPU6050_data_buffer[10] << 8) | MPU6050_data_buffer[11];  // 0x45 (GYRO_YOUT_H) & 0x46 (GYRO_YOUT_L)
+      |               ^
+../src/hal_entry.c:176:15: warning: conversion from 'int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  176 |         GyZ = (MPU6050_data_buffer[12] << 8) | MPU6050_data_buffer[13];  // 0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
+      |               ^
+../src/hal_entry.c:196:29: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  196 |             dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                             ^~~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12280	    128	   1728	  14136	   3738	Motor.elf
+Extracting support files...
+13:38:05 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:129:25: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  129 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                         ^~~~
+../src/hal_entry.c:196:29: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  196 |             dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                             ^~~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12316	    128	   1728	  14172	   375c	Motor.elf
+Extracting support files...
+13:38:10 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:129:25: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  129 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                         ^~~~
+../src/hal_entry.c:170:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  170 |         AcX = (MPU6050_data_buffer[0] << 8) | MPU6050_data_buffer[1];  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)
+      |               ^
+../src/hal_entry.c:171:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  171 |         AcY = (MPU6050_data_buffer[2] << 8) | MPU6050_data_buffer[3];  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
+      |               ^
+../src/hal_entry.c:172:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  172 |         AcZ = (MPU6050_data_buffer[4] << 8) | MPU6050_data_buffer[5];  // 0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
+      |               ^
+../src/hal_entry.c:173:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  173 |         Tmp = ((MPU6050_data_buffer[6] << 8) | MPU6050_data_buffer[7]) / 340 + 36; // 0x41 (TEMP_OUT_H) & 0x42 (TEMP_OUT_L)
+      |               ^
+../src/hal_entry.c:174:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  174 |         GyX = (MPU6050_data_buffer[8] << 8) | MPU6050_data_buffer[9];  // 0x43 (GYRO_XOUT_H) & 0x44 (GYRO_XOUT_L)
+      |               ^
+../src/hal_entry.c:175:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  175 |         GyY = (MPU6050_data_buffer[10] << 8) | MPU6050_data_buffer[11];  // 0x45 (GYRO_YOUT_H) & 0x46 (GYRO_YOUT_L)
+      |               ^
+../src/hal_entry.c:176:15: warning: conversion from 'int' to 'int16_t' {aka 'short int'} may change value [-Wconversion]
+  176 |         GyZ = (MPU6050_data_buffer[12] << 8) | MPU6050_data_buffer[13];  // 0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
+      |               ^
+../src/hal_entry.c:196:29: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  196 |             dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                             ^~~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12304	    128	   1728	  14160	   3750	Motor.elf
+Extracting support files...
+13:38:17 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:129:25: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  129 |         dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                         ^~~~
+../src/hal_entry.c:196:29: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  196 |             dutyHIGH = map (temp, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                             ^~~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12316	    128	   1728	  14172	   375c	Motor.elf
+Extracting support files...
+13:38:55 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12316	    128	   1728	  14172	   375c	Motor.elf
+Extracting support files...
+13:40:02 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12344	    128	   1728	  14200	   3778	Motor.elf
+Extracting support files...
+13:40:53 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12336	    128	   1728	  14192	   3770	Motor.elf
+Extracting support files...
+13:51:18 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:128:18: warning: conversion to 'int' from 'uint32_t' {aka 'long unsigned int'} may change the sign of the result [-Wsign-conversion]
+  128 |         setServo(temp);
+      |                  ^~~~
+../src/hal_entry.c: In function 'setServo':
+../src/hal_entry.c:321:30: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  321 |     uint32_t dutyHIGH = map (angle, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+      |                              ^~~~~
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12340	    124	   1724	  14188	   376c	Motor.elf
+Extracting support files...
+13:56:31 **** Incremental Build of configuration Debug for project Motor ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building target: Motor.elf
+arm-none-eabi-objcopy -O srec "Motor.elf"  "Motor.srec"
+arm-none-eabi-size --format=berkeley "Motor.elf"
+   text	   data	    bss	    dec	    hex	filename
+  12340	    124	   1724	  14188	   376c	Motor.elf
+Extracting support files...
+14:02:33 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+Building file: ../ra_gen/pin_data.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:203:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  203 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:156:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  156 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:209:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  209 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:162:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  162 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:215:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  215 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:168:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  168 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:221:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  221 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:174:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  174 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:227:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  227 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:180:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  180 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:233:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  233 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
 Building target: CKRA6M5_demo.elf
 arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  25060	    376	   2040	  27476	   6b54	CKRA6M5_demo.elf
+  29972	    448	   2232	  32652	   7f8c	CKRA6M5_demo.elf
 Extracting support files...
-00:44:06 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  25060	    376	   2040	  27476	   6b54	CKRA6M5_demo.elf
-Extracting support files...
-00:44:09 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  25060	    376	   2040	  27476	   6b54	CKRA6M5_demo.elf
-Extracting support files...
-00:48:42 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+14:04:51 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:150:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  150 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:203:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  203 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:156:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  156 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:209:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  209 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:162:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  162 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:215:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  215 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:168:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  168 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:221:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  221 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:174:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  174 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:227:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  227 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:180:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  180 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:233:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  233 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
 Building target: CKRA6M5_demo.elf
 arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  25140	    376	   2040	  27556	   6ba4	CKRA6M5_demo.elf
+  29972	    448	   2232	  32652	   7f8c	CKRA6M5_demo.elf
 Extracting support files...
-00:48:44 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  25140	    376	   2040	  27556	   6ba4	CKRA6M5_demo.elf
-Extracting support files...
-01:08:38 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-Building file: ../src/hal_entry.c
-Building file: ../ra_gen/hal_data.c
-Building file: ../ra_gen/main.c
-Building file: ../ra/fsp/src/rm_ob1203/light_proximity_mode/rm_ob1203_light_proximity_mode.c
-Building file: ../ra/fsp/src/rm_ob1203/rm_ob1203.c
-Building file: ../ra/fsp/src/rm_ob1203/rm_ob1203_ra_driver.c
-../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:156:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  156 |         int decimal_part = (int) ((num - integer_part) * 100);
-      |                                        ^
-../src/hal_entry.c:162:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  162 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:168:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  168 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:174:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  174 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:180:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  180 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:186:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  186 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:198:47: warning: format '%zu' expects argument of type 'size_t', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  198 |         sprintf (write_buffer, "clear_data: %zu \n\r", p_ob1203_data.clear_data);
-      |                                             ~~^        ~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                               |                     |
-      |                                               unsigned int          uint32_t {aka long unsigned int}
-      |                                             %lu
-../src/hal_entry.c:200:47: warning: format '%zu' expects argument of type 'size_t', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  200 |         sprintf (write_buffer, "green_data: %zu \n\r", p_ob1203_data.green_data);
-      |                                             ~~^        ~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                               |                     |
-      |                                               unsigned int          uint32_t {aka long unsigned int}
-      |                                             %lu
-../src/hal_entry.c:202:46: warning: format '%zu' expects argument of type 'size_t', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  202 |         sprintf (write_buffer, "blue_data: %zu \n\r", p_ob1203_data.blue_data);
-      |                                            ~~^        ~~~~~~~~~~~~~~~~~~~~~~~
-      |                                              |                     |
-      |                                              unsigned int          uint32_t {aka long unsigned int}
-      |                                            %lu
-../src/hal_entry.c:204:45: warning: format '%zu' expects argument of type 'size_t', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  204 |         sprintf (write_buffer, "red_data: %zu \n\r", p_ob1203_data.red_data);
-      |                                           ~~^        ~~~~~~~~~~~~~~~~~~~~~~
-      |                                             |                     |
-      |                                             unsigned int          uint32_t {aka long unsigned int}
-      |                                           %lu
-../src/hal_entry.c:206:46: warning: format '%zu' expects argument of type 'size_t', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  206 |         sprintf (write_buffer, "comp_data: %zu \n\r", p_ob1203_data.comp_data);
-      |                                            ~~^        ~~~~~~~~~~~~~~~~~~~~~~~
-      |                                              |                     |
-      |                                              unsigned int          uint32_t {aka long unsigned int}
-      |                                            %lu
-Building target: CKRA6M5_demo.elf
-arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28316	    436	   2132	  30884	   78a4	CKRA6M5_demo.elf
-Extracting support files...
-01:09:08 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+14:09:56 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:156:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  156 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:211:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  211 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:162:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  162 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:217:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  217 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:168:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  168 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:223:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  223 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:174:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  174 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:229:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  229 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:180:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  180 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:235:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  235 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:186:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  186 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:241:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  241 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
 Building target: CKRA6M5_demo.elf
 arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  28316	    436	   2132	  30884	   78a4	CKRA6M5_demo.elf
+  30044	    448	   2232	  32724	   7fd4	CKRA6M5_demo.elf
 Extracting support files...
-01:09:12 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28316	    436	   2132	  30884	   78a4	CKRA6M5_demo.elf
-Extracting support files...
-01:21:22 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+14:13:44 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:157:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  157 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:211:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  211 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:163:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  163 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:217:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  217 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:169:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  169 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:223:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  223 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:175:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  175 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:229:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  229 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:181:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  181 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:235:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  235 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:187:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  187 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:241:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  241 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
 Building target: CKRA6M5_demo.elf
 arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  28716	    436	   2132	  31284	   7a34	CKRA6M5_demo.elf
+  30052	    448	   2232	  32732	   7fdc	CKRA6M5_demo.elf
 Extracting support files...
-01:21:25 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28716	    436	   2132	  31284	   7a34	CKRA6M5_demo.elf
-Extracting support files...
-01:24:17 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+14:14:46 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 Building file: ../src/hal_entry.c
 ../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:157:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  157 |         int decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:211:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  211 |         int decimal_part = (int) ((num - integer_part) * 10);
       |                                        ^
-../src/hal_entry.c:163:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  163 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:217:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  217 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:169:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  169 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:223:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  223 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:175:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  175 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:229:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  229 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:181:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  181 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:235:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  235 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
-../src/hal_entry.c:187:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  187 |         decimal_part = (int) ((num - integer_part) * 100);
+../src/hal_entry.c:241:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  241 |         decimal_part = (int) ((num - integer_part) * 10);
       |                                    ^
 Building target: CKRA6M5_demo.elf
 arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  28732	    436	   2132	  31300	   7a44	CKRA6M5_demo.elf
+  30052	    448	   2232	  32732	   7fdc	CKRA6M5_demo.elf
 Extracting support files...
-01:24:19 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+22:43:27 **** Build of configuration Debug for project CKRA6M5_demo ****
 make -r -j8 all 
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
-  28732	    436	   2132	  31300	   7a44	CKRA6M5_demo.elf
-Extracting support files...
-01:25:55 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-Building file: ../src/hal_entry.c
-../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:154:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  154 |         int decimal_part = (int) ((num - integer_part) * 100);
-      |                                        ^
-../src/hal_entry.c:160:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  160 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:166:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  166 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:172:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  172 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:178:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  178 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:184:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  184 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-Building target: CKRA6M5_demo.elf
-arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28740	    436	   2132	  31308	   7a4c	CKRA6M5_demo.elf
-Extracting support files...
-01:25:56 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28740	    436	   2132	  31308	   7a4c	CKRA6M5_demo.elf
-Extracting support files...
-01:27:54 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28740	    436	   2132	  31308	   7a4c	CKRA6M5_demo.elf
-Extracting support files...
-01:28:43 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-Building file: ../src/hal_entry.c
-../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:154:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  154 |         int decimal_part = (int) ((num - integer_part) * 100);
-      |                                        ^
-../src/hal_entry.c:160:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  160 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:166:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  166 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:172:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  172 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:178:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  178 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:184:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  184 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-Building target: CKRA6M5_demo.elf
-arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28724	    436	   2132	  31292	   7a3c	CKRA6M5_demo.elf
-Extracting support files...
-01:28:44 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28724	    436	   2132	  31292	   7a3c	CKRA6M5_demo.elf
-Extracting support files...
-01:31:02 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-Building file: ../src/hal_entry.c
-../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:154:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  154 |         int decimal_part = (int) ((num - integer_part) * 100);
-      |                                        ^
-../src/hal_entry.c:160:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  160 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:166:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  166 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:172:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  172 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:178:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  178 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:184:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  184 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-Building target: CKRA6M5_demo.elf
-arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28732	    436	   2132	  31300	   7a44	CKRA6M5_demo.elf
-Extracting support files...
-01:34:27 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-Building file: ../src/hal_entry.c
-../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:153:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  153 |         int decimal_part = (int) ((num - integer_part) * 100);
-      |                                        ^
-../src/hal_entry.c:159:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  159 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:165:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  165 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:171:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  171 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:177:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  177 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-../src/hal_entry.c:183:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  183 |         decimal_part = (int) ((num - integer_part) * 100);
-      |                                    ^
-Building target: CKRA6M5_demo.elf
-arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28724	    436	   2132	  31292	   7a3c	CKRA6M5_demo.elf
-Extracting support files...
-01:41:10 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
-make -r -j8 all 
-Building file: ../src/hal_entry.c
-../src/hal_entry.c: In function 'hal_entry':
-../src/hal_entry.c:153:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  153 |         int decimal_part = (int) ((num - integer_part) * 10);
-      |                                        ^
-../src/hal_entry.c:159:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  159 |         decimal_part = (int) ((num - integer_part) * 10);
-      |                                    ^
-../src/hal_entry.c:165:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  165 |         decimal_part = (int) ((num - integer_part) * 10);
-      |                                    ^
-../src/hal_entry.c:171:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  171 |         decimal_part = (int) ((num - integer_part) * 10);
-      |                                    ^
-../src/hal_entry.c:177:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  177 |         decimal_part = (int) ((num - integer_part) * 10);
-      |                                    ^
-../src/hal_entry.c:183:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
-  183 |         decimal_part = (int) ((num - integer_part) * 10);
-      |                                    ^
-Building target: CKRA6M5_demo.elf
-arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
-arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
-   text	   data	    bss	    dec	    hex	filename
-  28716	    436	   2132	  31284	   7a34	CKRA6M5_demo.elf
+  30052	    448	   2232	  32732	   7fdc	CKRA6M5_demo.elf

@@ -1,0 +1,14 @@
+collapse/module.driver.comms_i2c_on_comms_i2c_bus.1150195609=false
+collapse/module.driver.comms_i2c_on_comms_i2c_device.1008761704=false
+collapse/module.driver.comms_i2c_on_comms_i2c_device.1321997736=false
+collapse/module.driver.comms_i2c_on_comms_i2c_device.1328189283=false
+collapse/module.driver.hs300x_on_hs300x.532233155=false
+collapse/module.driver.i2c_on_iic_master.814005252=false
+collapse/module.driver.ob1203_light_prox_mode_on_ob1203.905614851=false
+collapse/module.driver.ob1203_on_ob1203.1578391304=false
+collapse/module.driver.three_phase_on_gpt_three_phase.1982021448=false
+collapse/module.driver.uart_on_sci_uart.119187516=false
+collapse/module.driver.zmod4410_iaq_1st_on_zmod4xxx.568215358=false
+collapse/module.driver.zmod4xxx_on_zmod4xxx.567644728=false
+collapse/module.middleware.motor_driver.497908214=false
+eclipse.preferences.version=1

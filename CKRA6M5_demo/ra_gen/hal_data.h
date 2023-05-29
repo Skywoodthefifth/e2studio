@@ -18,6 +18,13 @@
 #include "r_uart_api.h"
 FSP_HEADER
 /* I2C Communication Device */
+extern const rm_comms_instance_t g_MPU6050;
+extern rm_comms_i2c_instance_ctrl_t g_MPU6050_ctrl;
+extern const rm_comms_cfg_t g_MPU6050_cfg;
+#ifndef MPU6050_callback
+void MPU6050_callback(rm_comms_callback_args_t *p_args);
+#endif
+/* I2C Communication Device */
 extern const rm_comms_instance_t g_comms_i2c_device2;
 extern rm_comms_i2c_instance_ctrl_t g_comms_i2c_device2_ctrl;
 extern const rm_comms_cfg_t g_comms_i2c_device2_cfg;

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="g_hs300x_sensor0"/>
+		<item key="selection" value="R_BSP_SoftwareDelay"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="R_BSP_SoftwareDelay"/>
+			<item value="f_get_iu"/>
 			<item value="g_hs300x_sensor0"/>
 			<item value="define"/>
 			<item value="zmod4xxx_comms_i2c_callback"/>
@@ -21,8 +23,6 @@
 			<item value="i2c_bus_name"/>
 			<item value="zmod4xxx_name "/>
 			<item value="zmod4xxx_irq_callback"/>
-			<item value="zmod4xxx_callback"/>
-			<item value="err"/>
 		</list>
 		<list key="replacehistory">
 			<item value="g_zmod4xxx_sensor0"/>

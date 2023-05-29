@@ -28,6 +28,7 @@ void console_write(const char *buffer);
 static volatile bool is_transfer_complete = false;
 
 void g_comms_i2c_bus0_quick_setup(void);
+void g_comms_i2c_bus1_quick_setup(void);
 
 void g_hs300x_sensor0_quick_setup(void);
 void g_hs300x_sensor0_quick_getting_humidity_and_temperature(rm_hs300x_data_t *p_data);
@@ -39,6 +40,30 @@ void g_ob1203_sensor0_quick_setup(void);
 void g_ob1203_sensor0_quick_getting_light_mode_data(rm_ob1203_light_data_t *p_ob1203_data,
         rm_ob1203_light_data_type_t data_type);
 void g_ob1203_sensor0_quick_getting_proximity_mode_data(rm_ob1203_prox_data_t *p_ob1203_data);
+
+/* TODO: Enable if you want to open I2C Communications Device */
+#define G_MPU6050_NON_BLOCKING (1)
+
+#if G_MPU6050_NON_BLOCKING
+static volatile bool g_i2c_completed = false;
+#endif
+
+void g_MPU6050_quick_setup(void);
+
+#define MPU6050_PWR_MGMT_1         0x6BU   // R/W
+#define MPU6050_PWR_MGMT_1_SLP     0x10u  // R/W
+
+#define MPU6050_ACCEL_XOUT_H       0x3BU  // R
+
+void r_ioport_quick_setup(void);
+
+#define SERVO BSP_IO_PORT_01_PIN_15
+#define PWM_RANGE_MIN 544 // 0 degree
+#define PWM_RANGE_MAX 2400 // 180 degree
+#define LED_D13 BSP_IO_PORT_05_PIN_04
+
+void setServo(uint32_t angle);
+uint32_t map(uint32_t x, uint32_t in_min, uint32_t in_max, uint32_t out_min, uint32_t out_max);
 
 extern bsp_leds_t g_bsp_leds;
 
@@ -86,16 +111,49 @@ void hal_entry(void)
     R_SCI_UART_Open (&g_console_write_ctrl, &g_console_write_cfg);
     // sprintf (write_buffer, "Hello world!\r\n");
 
+    /* Initialize I2C */
     g_comms_i2c_bus0_quick_setup ();
+    g_comms_i2c_bus1_quick_setup ();
 
+    /* Initialize hs3001 */
     g_hs300x_sensor0_quick_setup ();
 
+    /* Initialize zmod4xxx */
     g_zmod4xxx_sensor0_quick_setup ();
 
+    /* Initialize ob1203 */
     g_ob1203_sensor0_quick_setup ();
+
+    /* Initialize MPU6050 */
+    g_MPU6050_quick_setup ();
+
+    uint8_t MPU6050_config[2] =
+    { MPU6050_PWR_MGMT_1, MPU6050_PWR_MGMT_1_SLP };
+
+    uint8_t MPU6050_data_reg_addr = MPU6050_ACCEL_XOUT_H;
+    uint8_t MPU6050_data_buffer[14] =
+    { 0 };
+
+    rm_comms_write_read_params_t MPU6050_data =
+    { .p_src = &MPU6050_data_reg_addr, .p_dest = &MPU6050_data_buffer[0], .src_bytes = 0x1U, .dest_bytes = 0x14U, };
+
+    g_i2c_completed = false;
+    RM_COMMS_I2C_Write (&g_MPU6050_ctrl, &MPU6050_config[0], 2);
+    while (!g_i2c_completed)
+    {
+
+    }
+
+    /* Initialize ioport */
+    r_ioport_quick_setup ();
+
+    uint32_t servo_angle = 90;
 
     while (1)
     {
+
+        setServo (servo_angle);
+
         /* Enable access to the PFS registers. If using r_ioport module then register protection is automatically
          * handled. This code uses BSP IO functions to show how it is used.
          */
@@ -129,7 +187,7 @@ void hal_entry(void)
 
         g_hs300x_sensor0_quick_getting_humidity_and_temperature (&p_data);
 
-        sprintf (write_buffer, "HS3001:\n\r");
+        sprintf (write_buffer, "\n\rHS3001:\n\r");
         console_write (write_buffer);
 
         sprintf (write_buffer, "Humidity value: %d.%d \n\r", p_data.humidity.integer_part,
@@ -145,7 +203,7 @@ void hal_entry(void)
 
         g_zmod4xxx_sensor0_quick_getting_iaq_1st_gen_continuous_mode_data (&p_gas_data);
 
-        sprintf (write_buffer, "ZMOD4410:\n\r");
+        sprintf (write_buffer, "\n\rZMOD4410:\n\r");
         console_write (write_buffer);
 
         float num = p_gas_data.rmox;
@@ -189,7 +247,7 @@ void hal_entry(void)
         rm_ob1203_light_data_type_t data_type = RM_OB1203_LIGHT_DATA_TYPE_ALL;
         g_ob1203_sensor0_quick_getting_light_mode_data (&p_ob1203_data, data_type);
 
-        sprintf (write_buffer, "OB1203 LIGHT:\n\r");
+        sprintf (write_buffer, "\n\rOB1203 LIGHT:\n\r");
         console_write (write_buffer);
 
         sprintf (write_buffer, "clear_data: %lu \n\r", p_ob1203_data.clear_data);
@@ -206,11 +264,47 @@ void hal_entry(void)
         rm_ob1203_prox_data_t p_ob1203_data_2;
         g_ob1203_sensor0_quick_getting_proximity_mode_data (&p_ob1203_data_2);
 
-        sprintf (write_buffer, "OB1203 Proximity:\n\r");
+        sprintf (write_buffer, "\n\rOB1203 Proximity:\n\r");
         console_write (write_buffer);
 
         sprintf (write_buffer, "proximity_data: %u \n\r", p_ob1203_data_2.proximity_data);
         console_write (write_buffer);
+
+        /* MPU6050 DATA */
+        g_i2c_completed = false;
+        RM_COMMS_I2C_WriteRead (&g_MPU6050_ctrl, MPU6050_data);
+        while (!g_i2c_completed)
+        {
+
+        }
+
+        sprintf (write_buffer, "\n\rMPU6050:\n\r");
+        console_write (write_buffer);
+
+        sprintf (write_buffer, "AcX: %6d \n\r", MPU6050_data_buffer[0] << 8 | MPU6050_data_buffer[1]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "AcY: %6d \n\r", MPU6050_data_buffer[2] << 8 | MPU6050_data_buffer[3]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "AcZ: %6d \n\r", MPU6050_data_buffer[4] << 8 | MPU6050_data_buffer[5]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "Tmp: %6d \n\r", (MPU6050_data_buffer[6] << 8 | MPU6050_data_buffer[7]) / 340 + 36);
+        console_write (write_buffer);
+        sprintf (write_buffer, "GyX: %6d \n\r", MPU6050_data_buffer[8] << 8 | MPU6050_data_buffer[9]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "GyY: %6d \n\r", MPU6050_data_buffer[10] << 8 | MPU6050_data_buffer[11]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "GyZ: %6d \n\r", MPU6050_data_buffer[12] << 8 | MPU6050_data_buffer[13]);
+        console_write (write_buffer);
+
+        /* Open Servo by proximity_data (0 - ~20k) */
+        if (p_ob1203_data_2.proximity_data >= 10000)
+        {
+            servo_angle = 0;
+        }
+        else
+        {
+            servo_angle = 180;
+        }
 
         /* Delay */
         R_BSP_SoftwareDelay (delay, bsp_delay_units);
@@ -744,4 +838,99 @@ void g_ob1203_sensor0_quick_getting_proximity_mode_data(rm_ob1203_prox_data_t *p
     /* Calculate Proximity data */
     err = g_ob1203_sensor0.p_api->proxDataCalculate (g_ob1203_sensor0.p_ctrl, &ob1203_raw_data, p_ob1203_data);
     assert(FSP_SUCCESS == err);
+}
+
+/* TODO: Enable if you want to open I2C bus */
+
+/* Quick setup for i2c_bus_name. */
+void g_comms_i2c_bus1_quick_setup(void)
+{
+    fsp_err_t err;
+    i2c_master_instance_t *p_driver_instance = (i2c_master_instance_t*) g_comms_i2c_bus1_extended_cfg.p_driver_instance;
+
+    /* Open I2C driver, this must be done before calling any COMMS API */
+    err = p_driver_instance->p_api->open (p_driver_instance->p_ctrl, p_driver_instance->p_cfg);
+    assert(FSP_SUCCESS == err);
+}
+
+/* TODO: Enable if you want to use a callback */
+#define G_MPU6050_CALLBACK_ENABLE (1)
+#if G_MPU6050_CALLBACK_ENABLE
+void MPU6050_callback(rm_comms_callback_args_t *p_args)
+{
+#if G_MPU6050_NON_BLOCKING
+    if (RM_COMMS_EVENT_OPERATION_COMPLETE == p_args->event)
+    {
+        g_i2c_completed = true;
+    }
+#else
+    FSP_PARAMETER_NOT_USED(p_args);
+#endif
+}
+#endif
+
+/* Quick setup for i2c_device_name.
+ * - i2c_bus_name must be setup before calling this function
+ *     (See Developer Assistance -> i2c_device_name -> i2c_bus_name -> Quick Setup).
+ */
+
+/* Quick setup for i2c_device_name. */
+void g_MPU6050_quick_setup(void)
+{
+    fsp_err_t err;
+
+    /* Open I2C Communications device instance, this must be done before calling any COMMS_I2C API */
+    err = g_MPU6050.p_api->open (g_MPU6050.p_ctrl, g_MPU6050.p_cfg);
+    assert(FSP_SUCCESS == err);
+
+//#if G_MPU6050_NON_BLOCKING
+//    while (!g_i2c_completed)
+//    {
+//        ;
+//    }
+//#endif
+}
+
+void r_ioport_quick_setup(void)
+{
+    fsp_err_t err;
+
+    /* Open IO Port */
+    err = R_IOPORT_Open (&g_ioport_ctrl, &g_bsp_pin_cfg);
+    assert(FSP_SUCCESS == err);
+}
+
+void setServo(uint32_t angle)
+{ // Function executed at 20 ms intervals
+
+    uint32_t dutyHIGH = map (angle, 0, 180, PWM_RANGE_MIN, PWM_RANGE_MAX);
+
+    fsp_err_t err;
+
+    int i = 0;
+    do
+    {
+        err = R_IOPORT_PinWrite (&g_ioport_ctrl, SERVO, BSP_IO_LEVEL_HIGH);
+        assert(FSP_SUCCESS == err);
+        err = R_IOPORT_PinWrite (&g_ioport_ctrl, LED_D13, BSP_IO_LEVEL_HIGH);
+        assert(FSP_SUCCESS == err);
+
+        R_BSP_SoftwareDelay (dutyHIGH, BSP_DELAY_UNITS_MICROSECONDS);
+
+        err = R_IOPORT_PinWrite (&g_ioport_ctrl, SERVO, BSP_IO_LEVEL_LOW);
+        assert(FSP_SUCCESS == err);
+        err = R_IOPORT_PinWrite (&g_ioport_ctrl, LED_D13, BSP_IO_LEVEL_LOW);
+        assert(FSP_SUCCESS == err);
+
+        R_BSP_SoftwareDelay (20, BSP_DELAY_UNITS_MILLISECONDS);
+
+        ++i;
+    }
+    while (i < 50);
+
+}
+
+uint32_t map(uint32_t x, uint32_t in_min, uint32_t in_max, uint32_t out_min, uint32_t out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

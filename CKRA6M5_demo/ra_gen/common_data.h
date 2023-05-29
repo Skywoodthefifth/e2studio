@@ -11,6 +11,18 @@
 #include "bsp_pin_cfg.h"
 FSP_HEADER
 /* I2C Master on IIC Instance. */
+extern const i2c_master_instance_t g_i2c_master1;
+
+/** Access the I2C Master instance using these structures when calling API functions directly (::p_api is not used). */
+extern iic_master_instance_ctrl_t g_i2c_master1_ctrl;
+extern const i2c_master_cfg_t g_i2c_master1_cfg;
+
+#ifndef rm_comms_i2c_callback
+void rm_comms_i2c_callback(i2c_master_callback_args_t *p_args);
+#endif
+/* I2C Shared Bus */
+extern rm_comms_i2c_bus_extended_cfg_t g_comms_i2c_bus1_extended_cfg;
+/* I2C Master on IIC Instance. */
 extern const i2c_master_instance_t g_i2c_master0;
 
 /** Access the I2C Master instance using these structures when calling API functions directly (::p_api is not used). */

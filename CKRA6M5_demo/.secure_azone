@@ -65,6 +65,7 @@
             <slot name="P501" secure="false"/>
             <slot name="P502" secure="false"/>
             <slot name="P503" secure="false"/>
+            <slot name="P504" secure="false"/>
             <slot name="P505" secure="false"/>
             <slot name="P506" secure="false"/>
             <slot name="P508" secure="false"/>
@@ -104,6 +105,7 @@
         </peripheral>
         <peripheral name="IIC0" group="IIC" security=""/>
         <peripheral name="SCI5" group="SCI" security=""/>
+        <peripheral name="IIC1" group="IIC" security=""/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="false"/>
             <slot name="IRQ1" secure="false"/>
@@ -113,6 +115,10 @@
             <slot name="IRQ5" secure="false"/>
             <slot name="IRQ6" secure="false"/>
             <slot name="IRQ7" secure="false"/>
+            <slot name="IRQ8" secure="false"/>
+            <slot name="IRQ9" secure="false"/>
+            <slot name="IRQ10" secure="false"/>
+            <slot name="IRQ11" secure="false"/>
         </peripheral>
     </partition>
 </azone>

@@ -1,0 +1,289 @@
+/***********************************************************************************************************************
+ * Copyright [2020-2022] Renesas Electronics Corporation and/or its affiliates.  All Rights Reserved.
+ *
+ * This software and documentation are supplied by Renesas Electronics America Inc. and may only be used with products
+ * of Renesas Electronics Corp. and its affiliates ("Renesas").  No other uses are authorized.  Renesas products are
+ * sold pursuant to Renesas terms and conditions of sale.  Purchasers are solely responsible for the selection and use
+ * of Renesas products and Renesas assumes no liability.  No license, express or implied, to any intellectual property
+ * right is granted by Renesas. This software is protected under all applicable laws, including copyright laws. Renesas
+ * reserves the right to change or discontinue this software and/or this documentation. THE SOFTWARE AND DOCUMENTATION
+ * IS DELIVERED TO YOU "AS IS," AND RENESAS MAKES NO REPRESENTATIONS OR WARRANTIES, AND TO THE FULLEST EXTENT
+ * PERMISSIBLE UNDER APPLICABLE LAW, DISCLAIMS ALL WARRANTIES, WHETHER EXPLICITLY OR IMPLICITLY, INCLUDING WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT, WITH RESPECT TO THE SOFTWARE OR
+ * DOCUMENTATION.  RENESAS SHALL HAVE NO LIABILITY ARISING OUT OF ANY SECURITY VULNERABILITY OR BREACH.  TO THE MAXIMUM
+ * EXTENT PERMITTED BY LAW, IN NO EVENT WILL RENESAS BE LIABLE TO YOU IN CONNECTION WITH THE SOFTWARE OR DOCUMENTATION
+ * (OR ANY PERSON OR ENTITY CLAIMING RIGHTS DERIVED FROM YOU) FOR ANY LOSS, DAMAGES, OR CLAIMS WHATSOEVER, INCLUDING,
+ * WITHOUT LIMITATION, ANY DIRECT, CONSEQUENTIAL, SPECIAL, INDIRECT, PUNITIVE, OR INCIDENTAL DAMAGES; ANY LOST PROFITS,
+ * OTHER ECONOMIC DAMAGE, PROPERTY DAMAGE, OR PERSONAL INJURY; AND EVEN IF RENESAS HAS BEEN ADVISED OF THE POSSIBILITY
+ * OF SUCH LOSS, DAMAGES, CLAIMS OR COSTS.
+ **********************************************************************************************************************/
+
+#include "hal_data.h"
+#include <stdio.h>
+
+void R_BSP_WarmStart(bsp_warm_start_event_t event);
+
+void user_uart_callback(uart_callback_args_t *p_args);
+void console_write(const char *buffer);
+static volatile bool is_transfer_complete = false;
+
+/* TODO: Enable if you want to open I2C Communications Device */
+#define G_MPU6050_NON_BLOCKING (1)
+
+#if G_MPU6050_NON_BLOCKING
+static volatile bool g_i2c_completed = false;
+#endif
+
+void g_comms_i2c_bus0_quick_setup(void);
+
+void g_MPU6050_quick_setup(void);
+
+#define MPU6050_PWR_MGMT_1         0x6BU   // R/W
+#define MPU6050_PWR_MGMT_1_SLP     0x1u  // R/W
+
+#define MPU6050_ACCEL_XOUT_H       0x3BU  // R
+
+extern bsp_leds_t g_bsp_leds;
+
+/*******************************************************************************************************************//**
+ * @brief  Blinky example application
+ *
+ * Blinks all leds at a rate of 1 second using the software delay function provided by the BSP.
+ *
+ **********************************************************************************************************************/
+void hal_entry(void)
+{
+#if BSP_TZ_SECURE_BUILD
+
+    /* Enter non-secure code */
+    R_BSP_NonSecureEnter();
+#endif
+
+    /* Define the units to be used with the software delay function */
+    const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;
+
+    /* Set the blink frequency (must be <= bsp_delay_units */
+    const uint32_t freq_in_hz = 30;
+
+    /* Calculate the delay in terms of bsp_delay_units */
+    const uint32_t delay = bsp_delay_units / freq_in_hz;
+
+    /* LED type structure */
+    bsp_leds_t leds = g_bsp_leds;
+
+    /* If this board has no LEDs then trap here */
+    if (0 == leds.led_count)
+    {
+        while (1)
+        {
+            ;                          // There are no LEDs on this board
+        }
+    }
+
+    /* Holds level to set for pins */
+    bsp_io_level_t pin_level = BSP_IO_LEVEL_LOW;
+
+    char write_buffer[200] =
+    { };
+    /* Initialize UART */
+    R_SCI_UART_Open (&g_console_write_ctrl, &g_console_write_cfg);
+
+    g_comms_i2c_bus0_quick_setup ();
+
+    g_MPU6050_quick_setup ();
+
+    uint8_t MPU6050_config[2] =
+    { MPU6050_PWR_MGMT_1, MPU6050_PWR_MGMT_1_SLP };
+
+    uint8_t MPU6050_data_reg_addr = MPU6050_ACCEL_XOUT_H;
+    uint8_t MPU6050_data_buffer[14] =
+    { 0 };
+
+    rm_comms_write_read_params_t MPU6050_data =
+    { .p_src = &MPU6050_data_reg_addr, .p_dest = &MPU6050_data_buffer[0], .src_bytes = 0x1U, .dest_bytes = 0xEU, };
+
+    g_i2c_completed = false;
+    RM_COMMS_I2C_Write (&g_MPU6050_ctrl, &MPU6050_config[0], 2);
+    while (!g_i2c_completed)
+    {
+
+    }
+
+    while (1)
+    {
+        /* Enable access to the PFS registers. If using r_ioport module then register protection is automatically
+         * handled. This code uses BSP IO functions to show how it is used.
+         */
+        R_BSP_PinAccessEnable ();
+
+        /* Update all board LEDs */
+        for (uint32_t i = 0; i < leds.led_count; i++)
+        {
+            /* Get pin to toggle */
+            uint32_t pin = leds.p_leds[i];
+
+            /* Write to this pin */
+            R_BSP_PinWrite ((bsp_io_port_pin_t) pin, pin_level);
+        }
+
+        /* Protect PFS registers */
+        R_BSP_PinAccessDisable ();
+
+        /* Toggle level for next write */
+        if (BSP_IO_LEVEL_LOW == pin_level)
+        {
+            pin_level = BSP_IO_LEVEL_HIGH;
+        }
+        else
+        {
+            pin_level = BSP_IO_LEVEL_LOW;
+        }
+
+        g_i2c_completed = false;
+        RM_COMMS_I2C_WriteRead (&g_MPU6050_ctrl, MPU6050_data);
+        while (!g_i2c_completed)
+        {
+
+        }
+
+//        uint8_t AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ;
+//        AcX = MPU6050_data_buffer[0] << 8 | MPU6050_data_buffer[1];  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)
+//        AcY = MPU6050_data_buffer[2] << 8 | MPU6050_data_buffer[3];  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
+//        AcZ = MPU6050_data_buffer[4] << 8 | MPU6050_data_buffer[5];  // 0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
+//        Tmp = MPU6050_data_buffer[6] << 8 | MPU6050_data_buffer[7];  // 0x41 (TEMP_OUT_H) & 0x42 (TEMP_OUT_L)
+//        GyX = MPU6050_data_buffer[8] << 8 | MPU6050_data_buffer[9];  // 0x43 (GYRO_XOUT_H) & 0x44 (GYRO_XOUT_L)
+//        GyY = MPU6050_data_buffer[10] << 8 | MPU6050_data_buffer[11];  // 0x45 (GYRO_YOUT_H) & 0x46 (GYRO_YOUT_L)
+//        GyZ = MPU6050_data_buffer[12] << 8 | MPU6050_data_buffer[13];  // 0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
+
+        sprintf (write_buffer, "AcX: %6d \n\r", (MPU6050_data_buffer[0]) | MPU6050_data_buffer[1]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "AcY: %6d \n\r", (MPU6050_data_buffer[2]) | MPU6050_data_buffer[3]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "AcZ: %6d \n\r", (MPU6050_data_buffer[4]) | MPU6050_data_buffer[5]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "Tmp: %6d \n\r", ((MPU6050_data_buffer[6]) | MPU6050_data_buffer[7]) / 340 + 36);
+        console_write (write_buffer);
+        sprintf (write_buffer, "GyX: %6d \n\r", (MPU6050_data_buffer[8]) | MPU6050_data_buffer[9]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "GyY: %6d \n\r", (MPU6050_data_buffer[10]) | MPU6050_data_buffer[11]);
+        console_write (write_buffer);
+        sprintf (write_buffer, "GyZ: %6d \n\r", (MPU6050_data_buffer[12]) | MPU6050_data_buffer[13]);
+        console_write (write_buffer);
+
+        /* Delay */
+        R_BSP_SoftwareDelay (delay, bsp_delay_units);
+
+        /* Send clear screen message & cursor home command */
+        sprintf (write_buffer, "\x1b[H");
+        console_write (write_buffer);
+    }
+}
+
+/*******************************************************************************************************************//**
+ * This function is called at various points during the startup process.  This implementation uses the event that is
+ * called right before main() to set up the pins.
+ *
+ * @param[in]  event    Where at in the start up process the code is currently at
+ **********************************************************************************************************************/
+void R_BSP_WarmStart(bsp_warm_start_event_t event)
+{
+    if (BSP_WARM_START_RESET == event)
+    {
+#if BSP_FEATURE_FLASH_LP_VERSION != 0
+
+        /* Enable reading from data flash. */
+        R_FACI_LP->DFLCTL = 1U;
+
+        /* Would normally have to wait tDSTOP(6us) for data flash recovery. Placing the enable here, before clock and
+         * C runtime initialization, should negate the need for a delay since the initialization will typically take more than 6us. */
+#endif
+    }
+
+    if (BSP_WARM_START_POST_C == event)
+    {
+        /* C runtime environment and system clocks are setup. */
+
+        /* Configure pins. */
+        R_IOPORT_Open (&g_ioport_ctrl, g_ioport.p_cfg);
+    }
+}
+
+/* TODO: Enable if you want to open I2C bus */
+
+/* Quick setup for i2c_bus_name. */
+void g_comms_i2c_bus0_quick_setup(void)
+{
+    fsp_err_t err;
+    i2c_master_instance_t *p_driver_instance = (i2c_master_instance_t*) g_comms_i2c_bus0_extended_cfg.p_driver_instance;
+
+    /* Open I2C driver, this must be done before calling any COMMS API */
+    err = p_driver_instance->p_api->open (p_driver_instance->p_ctrl, p_driver_instance->p_cfg);
+    assert(FSP_SUCCESS == err);
+}
+
+/* TODO: Enable if you want to use a callback */
+#define G_MPU6050_CALLBACK_ENABLE (1)
+#if G_MPU6050_CALLBACK_ENABLE
+void MPU6050_callback(rm_comms_callback_args_t *p_args)
+{
+#if G_MPU6050_NON_BLOCKING
+    if (RM_COMMS_EVENT_OPERATION_COMPLETE == p_args->event)
+    {
+        g_i2c_completed = true;
+    }
+#else
+    FSP_PARAMETER_NOT_USED(p_args);
+#endif
+}
+#endif
+
+/* Quick setup for i2c_device_name.
+ * - i2c_bus_name must be setup before calling this function
+ *     (See Developer Assistance -> i2c_device_name -> i2c_bus_name -> Quick Setup).
+ */
+
+/* Quick setup for i2c_device_name. */
+void g_MPU6050_quick_setup(void)
+{
+    fsp_err_t err;
+
+    /* Open I2C Communications device instance, this must be done before calling any COMMS_I2C API */
+    err = g_MPU6050.p_api->open (g_MPU6050.p_ctrl, g_MPU6050.p_cfg);
+    assert(FSP_SUCCESS == err);
+
+//#if G_MPU6050_NON_BLOCKING
+//    while (!g_i2c_completed)
+//    {
+//        ;
+//    }
+//#endif
+}
+
+void user_uart_callback(uart_callback_args_t *p_args)
+{
+    switch (p_args->event)
+    {
+        case UART_EVENT_TX_COMPLETE:
+        {
+            is_transfer_complete = true;
+            break;
+        }
+        default:
+        {
+            /* Do nothing */
+            break;
+        }
+    }
+}
+
+void console_write(const char *buffer)
+{
+    is_transfer_complete = false;
+
+    R_SCI_UART_Write (&g_console_write_ctrl, (uint8_t*) buffer, strlen (buffer));
+
+    while (!is_transfer_complete)
+    {
+        R_BSP_SoftwareDelay (1, BSP_DELAY_UNITS_MICROSECONDS);
+    }
+}

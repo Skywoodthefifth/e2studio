@@ -2,6 +2,27 @@
 #include "hal_data.h"
 /* I2C Communication Device */
 #define RA_NOT_DEFINED (1)
+rm_comms_i2c_instance_ctrl_t g_MPU6050_ctrl;
+
+/* Lower level driver configuration */
+const i2c_master_cfg_t g_MPU6050_lower_level_cfg =
+{ .slave = 0x68, .addr_mode = I2C_MASTER_ADDR_MODE_7BIT, };
+
+const rm_comms_cfg_t g_MPU6050_cfg =
+{ .semaphore_timeout = 0xFFFFFFFF, .p_lower_level_cfg = (void*) &g_MPU6050_lower_level_cfg, .p_extend =
+          (void*) &g_comms_i2c_bus1_extended_cfg,
+  .p_callback = MPU6050_callback,
+#if defined(NULL)
+    .p_context          = NULL,
+#else
+  .p_context = (void*) &NULL,
+#endif
+        };
+
+const rm_comms_instance_t g_MPU6050 =
+{ .p_ctrl = &g_MPU6050_ctrl, .p_cfg = &g_MPU6050_cfg, .p_api = &g_comms_on_comms_i2c, };
+/* I2C Communication Device */
+#define RA_NOT_DEFINED (1)
 rm_comms_i2c_instance_ctrl_t g_comms_i2c_device2_ctrl;
 
 /* Lower level driver configuration */

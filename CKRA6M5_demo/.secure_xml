@@ -87,8 +87,8 @@
       <configSetting altId="etherc0.rmii.txd_en.p405" configurationId="etherc0.rmii.txd_en"/>
       <configSetting altId="iic0.scl.p400" configurationId="iic0.scl" isUsedByDriver="true"/>
       <configSetting altId="iic0.sda.p401" configurationId="iic0.sda" isUsedByDriver="true"/>
-      <configSetting altId="iic1.scl.p512" configurationId="iic1.scl"/>
-      <configSetting altId="iic1.sda.p511" configurationId="iic1.sda"/>
+      <configSetting altId="iic1.scl.p512" configurationId="iic1.scl" isUsedByDriver="true"/>
+      <configSetting altId="iic1.sda.p511" configurationId="iic1.sda" isUsedByDriver="true"/>
       <configSetting altId="p004.input" configurationId="p004"/>
       <configSetting altId="p005.input" configurationId="p005"/>
       <configSetting altId="p006.input" configurationId="p006"/>
@@ -96,7 +96,7 @@
       <configSetting altId="p104.input" configurationId="p104"/>
       <configSetting altId="p105.input" configurationId="p105"/>
       <configSetting altId="p111.input" configurationId="p111"/>
-      <configSetting altId="p115.input" configurationId="p115"/>
+      <configSetting altId="p115.output.low" configurationId="p115"/>
       <configSetting altId="p206.input" configurationId="p206"/>
       <configSetting altId="p207.input" configurationId="p207"/>
       <configSetting altId="p208.input" configurationId="p208"/>
@@ -112,6 +112,7 @@
       <configSetting altId="p414.input" configurationId="p414"/>
       <configSetting altId="p415.input" configurationId="p415"/>
       <configSetting altId="p503.input" configurationId="p503"/>
+      <configSetting altId="p504.output.low" configurationId="p504"/>
       <configSetting altId="p505.input" configurationId="p505"/>
       <configSetting altId="p506.input" configurationId="p506"/>
       <configSetting altId="p601.output.low" configurationId="p601"/>

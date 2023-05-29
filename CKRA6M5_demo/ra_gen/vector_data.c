@@ -12,6 +12,10 @@
             [5] = iic_master_txi_isr, /* IIC0 TXI (Transmit data empty) */
             [6] = iic_master_tei_isr, /* IIC0 TEI (Transmit end) */
             [7] = iic_master_eri_isr, /* IIC0 ERI (Transfer error) */
+            [8] = iic_master_rxi_isr, /* IIC1 RXI (Receive data full) */
+            [9] = iic_master_txi_isr, /* IIC1 TXI (Transmit data empty) */
+            [10] = iic_master_tei_isr, /* IIC1 TEI (Transmit end) */
+            [11] = iic_master_eri_isr, /* IIC1 ERI (Transfer error) */
         };
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
         {
@@ -23,5 +27,9 @@
             [5] = BSP_PRV_IELS_ENUM(EVENT_IIC0_TXI), /* IIC0 TXI (Transmit data empty) */
             [6] = BSP_PRV_IELS_ENUM(EVENT_IIC0_TEI), /* IIC0 TEI (Transmit end) */
             [7] = BSP_PRV_IELS_ENUM(EVENT_IIC0_ERI), /* IIC0 ERI (Transfer error) */
+            [8] = BSP_PRV_IELS_ENUM(EVENT_IIC1_RXI), /* IIC1 RXI (Receive data full) */
+            [9] = BSP_PRV_IELS_ENUM(EVENT_IIC1_TXI), /* IIC1 TXI (Transmit data empty) */
+            [10] = BSP_PRV_IELS_ENUM(EVENT_IIC1_TEI), /* IIC1 TEI (Transmit end) */
+            [11] = BSP_PRV_IELS_ENUM(EVENT_IIC1_ERI), /* IIC1 ERI (Transfer error) */
         };
         #endif
