@@ -65,6 +65,8 @@ void r_ioport_quick_setup(void);
 void setServo(uint32_t angle);
 uint32_t map(uint32_t x, uint32_t in_min, uint32_t in_max, uint32_t out_min, uint32_t out_max);
 
+bool check_condition_sensor_to_servo(rm_hs300x_data_t p_data, rm_zmod4xxx_iaq_1st_data_t p_gas_data);
+
 extern bsp_leds_t g_bsp_leds;
 
 /*******************************************************************************************************************//**
@@ -296,8 +298,8 @@ void hal_entry(void)
         sprintf (write_buffer, "GyZ: %6d \n\r", MPU6050_data_buffer[12] << 8 | MPU6050_data_buffer[13]);
         console_write (write_buffer);
 
-        /* Open Servo by proximity_data (0 - ~20k) */
-        if (p_ob1203_data_2.proximity_data >= 10000)
+        /* Open Servo by HS3001 and ZMOD4410 */
+        if (p_ob1203_data_2.proximity_data >= 10000 || check_condition_sensor_to_servo (p_data, p_gas_data))
         {
             servo_angle = 0;
         }
@@ -308,6 +310,10 @@ void hal_entry(void)
 
         /* Delay */
         R_BSP_SoftwareDelay (delay, bsp_delay_units);
+
+        /* Send clear screen message & cursor home command */
+        sprintf (write_buffer, "\x1b[H");
+        console_write (write_buffer);
 
         /* Send clear screen message & cursor home command */
         sprintf (write_buffer, "\x1b[H");
@@ -934,3 +940,35 @@ uint32_t map(uint32_t x, uint32_t in_min, uint32_t in_max, uint32_t out_min, uin
 {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
+
+bool check_condition_sensor_to_servo(rm_hs300x_data_t p_data, rm_zmod4xxx_iaq_1st_data_t p_gas_data)
+{
+
+    if (p_data.humidity.integer_part <= 40)
+    {
+        return true;
+    }
+    if (p_data.temperature.integer_part >= 45)
+    {
+        return true;
+    }
+    if (p_gas_data.rmox <= 1000.0)
+    {
+        return true;
+    }
+    if (p_gas_data.iaq >= 3.0)
+    {
+        return true;
+    }
+    if (p_gas_data.tvoc >= 1.0)
+    {
+        return true;
+    }
+    if (p_gas_data.eco2 >= 1000.0)
+    {
+        return true;
+    }
+
+    return false;
+}
+

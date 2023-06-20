@@ -646,3 +646,31 @@ make -r -j8 all
 arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
    text	   data	    bss	    dec	    hex	filename
   30052	    448	   2232	  32732	   7fdc	CKRA6M5_demo.elf
+Extracting support files...
+12:57:22 **** Incremental Build of configuration Debug for project CKRA6M5_demo ****
+make -r -j8 all 
+Building file: ../src/hal_entry.c
+../src/hal_entry.c: In function 'hal_entry':
+../src/hal_entry.c:213:40: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  213 |         int decimal_part = (int) ((num - integer_part) * 10);
+      |                                        ^
+../src/hal_entry.c:219:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  219 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:225:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  225 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:231:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  231 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:237:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  237 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+../src/hal_entry.c:243:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  243 |         decimal_part = (int) ((num - integer_part) * 10);
+      |                                    ^
+Building target: CKRA6M5_demo.elf
+arm-none-eabi-objcopy -O srec "CKRA6M5_demo.elf"  "CKRA6M5_demo.srec"
+arm-none-eabi-size --format=berkeley "CKRA6M5_demo.elf"
+   text	   data	    bss	    dec	    hex	filename
+  30188	    448	   2232	  32868	   8064	CKRA6M5_demo.elf
